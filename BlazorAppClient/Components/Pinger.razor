@@ -1,0 +1,18 @@
+﻿@inject HttpClient Http
+
+<h1>Fetch data from server API</h1>
+
+<button class="btn btn-primary" @onclick="FetchOnClick">Fetch</button>
+
+<p>Response: @Response</p>
+
+@code{
+
+    public string Response { get; set; }
+
+    public async Task FetchOnClick()
+    {
+        Response = await Http.GetStringAsync("https://localhost:44372/test/ping");
+    }
+
+}
